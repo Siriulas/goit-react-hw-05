@@ -1,0 +1,19 @@
+.nav {
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+
+.link {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.link:hover {
+  color: #0056b3;
+}
+
+.active {
+  font-weight: bold;
+  text-decoration: underline;
+}

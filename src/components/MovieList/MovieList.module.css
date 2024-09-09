@@ -1,0 +1,22 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.item {
+  list-style: none;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+}
+
+.image {
+  width: 150px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 10px;
+}
