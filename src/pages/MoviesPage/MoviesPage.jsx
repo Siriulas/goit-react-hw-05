@@ -1,33 +1,33 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useSearchParams, Link } from 'react-router-dom';
+import { searchMovies } from '../../components/TBDM-API/TBDM-API';
 import MovieList from '../../components/MovieList/MovieList';
-import styles from './MoviesPage.module.css';
+import styles from './MoviesPage.module.css'
 
 const MoviesPage = () => {
-  const [query, setQuery] = useState('');
   const [movies, setMovies] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const query = searchParams.get('query') || '';
 
-  const handleSearch = () => {
-    axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}`, {
-      headers: {
-        Authorization: 'Bearer YOUR_API_TOKEN',
-      },
-    })
-    .then(response => setMovies(response.data.results))
-    .catch(error => console.error(error));
+  useEffect(() => {
+    if (query) {
+      searchMovies(query).then(setMovies);
+    }
+  }, [query]);
+
+  const handleSearch = e => {
+    e.preventDefault();
+    const query = e.target.elements.query.value;
+    setSearchParams({ query });
   };
 
   return (
-    <div className={styles.moviesPage}>
-      <input
-        type="text"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        placeholder="Search movies"
-        className={styles.input}
-      />
-      <button onClick={handleSearch} className={styles.button}>Search</button>
-      <MovieList movies={movies} />
+    <div className={styles.container}>
+      <form onSubmit={handleSearch}>
+        <input className={styles.input} name="query" type="text" defaultValue={query} />
+        <button className={styles.button} type="submit">Search</button>
+      </form>
+      {movies.length > 0 && <MovieList movies={movies} />}
     </div>
   );
 };

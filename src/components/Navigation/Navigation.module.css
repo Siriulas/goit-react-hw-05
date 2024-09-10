@@ -1,19 +1,17 @@
 .nav {
-  background-color: #f8f9fa;
+  background-color: #f4f4f4;
   padding: 10px;
+  display: flex;
+  gap: 20px;
 }
 
 .link {
-  margin-right: 20px;
   text-decoration: none;
-  color: #007bff;
+  color: #333;
 }
 
-.link:hover {
-  color: #0056b3;
-}
-
-.active {
+.link:hover,
+.link:focus {
   font-weight: bold;
-  text-decoration: underline;
+  color: #1f1e1e;
 }

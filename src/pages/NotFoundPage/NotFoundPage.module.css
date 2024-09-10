@@ -1,4 +1,4 @@
-.notFound {
+.container {
   text-align: center;
   padding: 50px;
 }
@@ -8,17 +8,8 @@ h1 {
   margin-bottom: 20px;
 }
 
-p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-.link {
-  color: #007bff;
+a {
+  color: #ff6347;
   text-decoration: none;
   font-size: 20px;
-}
-
-.link:hover {
-  text-decoration: underline;
 }

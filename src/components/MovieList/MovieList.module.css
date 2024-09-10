@@ -1,22 +1,19 @@
-.list {
+.movieList {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-}
-
-.item {
   list-style: none;
+  padding: 0;
 }
 
-.link {
-  text-decoration: none;
-  color: black;
-  text-align: center;
-}
-
-.image {
-  width: 150px;
-  height: 225px;
+.movieList img {
+  width: 200px;
+  height: 300px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 8px;
+}
+
+.movieList p {
+  text-align: center;
+  margin-top: 10px;
 }
